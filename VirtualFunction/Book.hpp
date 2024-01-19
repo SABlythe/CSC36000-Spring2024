@@ -1,6 +1,8 @@
 #ifndef _BOOK_HPP_
 #define _BOOK_HPP_
 
+#include <iostream> 
+
 #include "Media.hpp"
 
 class Book: public Media

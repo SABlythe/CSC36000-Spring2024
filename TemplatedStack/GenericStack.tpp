@@ -10,28 +10,31 @@ template <class T>
 void
 Stack<T>::push (const T &str)
 {
-  push_front(str);
+  list<T>::push_front(str);
 }
 
 template <class T>
 T
 Stack<T>::pop()
 {
-  if (!isEmpty())
-    {
-      T firstVal = front();
-      pop_front();
+  //  if (!isEmpty())
+  //    {
+      T firstVal = list<T>::front();
+      list<T>::pop_front();
       return firstVal;
-    }
+  //    }
+ 
 
   // if we get here, stack is empty!
-  cerr << "Attempt to pop an empty stack!" << endl;
-  return ">>>>ERROR - EMPTY STACK POP<<<<";
+  //cerr << "Attempt to pop an empty stack!" << endl;
+ 
+  //T dummyVal;
+  //return dummyVal;
 }
 
 template <class T>
 bool
 Stack<T>::isEmpty() const
 {
-  return empty();
+  return list<T>::empty();
 }

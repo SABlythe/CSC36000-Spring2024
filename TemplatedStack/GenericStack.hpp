@@ -1,6 +1,6 @@
-#ifndef _STACK_HPP_
-#define _STACK_HPP_
-
+#ifndef _GENERIC_STACK_HPP_
+#define _GENERIC_STACK_HPP_
+ 
 #include <list>
 #include <string>
 

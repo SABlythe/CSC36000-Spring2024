@@ -47,11 +47,24 @@ int main(int argc, char *argv[])
 
   possibleJobs.sort(compareByFinish); // sort the provided jobs (by finish time)
 
+  for( Interval i: possibleJobs)
+  {
+    i.display();
+    cout << endl;
+  }
+
+  cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+  
+  int lastFinishTime = 0;
+
   // go through each provided job (in order of finish time)
   for (Interval testJob : possibleJobs)
     {
-      if ( /* compatible*/ true /* will replace true appropriately soon */)
-	answer.push_back(testJob); // ... add job to optimal answer`
+      if ( testJob.start() >= lastFinishTime)
+	{
+	  answer.push_back(testJob); // ... add job to optimal answer`
+	  lastFinishTime = testJob.finish();
+	}
     }
   
   // display each chosen interval from optimal answer

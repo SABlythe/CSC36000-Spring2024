@@ -27,9 +27,11 @@ public:
 
   // accessors
   int finish() const {return _finish;}
-  int& finish() {return _finish;}
   int id() const {return _id;}
- 
+
+  // modifier
+  int& finish() {return _finish;}
+  
   // overloaded < - usefull for heap ... 
   bool operator<(const Classroom &cr) const {return _finish<cr._finish;}
 

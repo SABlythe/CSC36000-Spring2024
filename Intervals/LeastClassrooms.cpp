@@ -45,11 +45,11 @@ int main(int argc, char *argv[])
       ifile>>lecture;
     }
 
-  list<Classroom> answer; // the collection of maximum size. Intially empty.
+  list<Classroom> answer; 
   int d = 0;
   GenericHeap<Classroom> classroomHeap(lectures.size());
 
-  lectures.sort(compareByStart); // sort the provided jobs (by finish time)
+  lectures.sort(compareByStart); // sort the provided lectures (by start time)
 
   for( Interval i: lectures)
   {
@@ -63,7 +63,8 @@ int main(int argc, char *argv[])
   for (Interval nextLecture : lectures)
     {
       /* does this lecture fit in an existing classroom? */
-      if ( classroomHeap.peekMin().finish() <= nextLecture.start() )
+      if ( !classroomHeap.isEmpty() &&
+	   classroomHeap.peekMin().finish() <= nextLecture.start() )
 	{
           cout << "Scheduling " << nextLecture
                << " in classroom " << classroomHeap.peekMin() << endl;

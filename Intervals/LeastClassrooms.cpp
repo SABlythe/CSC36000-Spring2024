@@ -65,6 +65,8 @@ int main(int argc, char *argv[])
       /* does this lecture fit in an existing classroom? */
       if ( classroomHeap.peekMin().finish() <= nextLecture.start() )
 	{
+          cout << "Scheduling " << nextLecture
+               << " in classroom " << classroomHeap.peekMin() << endl;
 	  classroomHeap.peekMin().finish() = nextLecture.finish() ;
 	  classroomHeap.downHeap();
 	}
@@ -74,10 +76,12 @@ int main(int argc, char *argv[])
 	  d++;
 	  Classroom newClassroom(nextLecture.finish());
 	  classroomHeap.add(newClassroom);
+          cout << "Scheduling " << nextLecture
+               << " in classroom " << newClassroom << " ****"  << endl;
 	}
     }
   
-  cout << d << endl;
-  
+  cout << "We will need " << d << " classrooms." << endl;
+
   return 0;
 }

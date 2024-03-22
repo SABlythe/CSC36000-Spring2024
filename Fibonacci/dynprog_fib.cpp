@@ -7,15 +7,11 @@ long unsigned int M[MAXVAL];
 
 long unsigned int fibo(unsigned int n)
 {
-  // havent solved this subproblem yet ....
-  if (M[n] == 0)
-    { 
-      if (n<=1)
-	M[n] =  1;
-      
-      else
-	M[n] =  fibo(n-1) + fibo(n-2);
-    }
+  M[0] = 1;
+  M[1] = 1;
+
+  for (unsigned int index=2; index <= n; index++)
+    M[index] = M[index-1] + M[index-2];
 
   return M[n];
 }
